@@ -1,0 +1,18 @@
+body {
+    background-color: #008D97;
+    color: white;
+}
+.container-fluid {
+    border: 5px solid #F5811F;
+}
+.row {
+    margin: 0 0 2% 0;
+}
+.well {
+  margin: 20px auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.jumbotron {
+    background-color: #F5811F;
+    margin: 1% auto;
+}

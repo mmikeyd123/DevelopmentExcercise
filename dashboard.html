@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="css/bootstrap.min.css"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/controller.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Dashboard</title>
+
+</head>
+    
+<body ng-controller="MatchupController as matchupCtrl">
+    
+<div class="container-fluid">
+    <div class="jumbotron" ng-controller="DayController as DayCtrl">
+        <h1>Guess Your Matchup.</h1>
+        <p>Click on the team you think will win.</p>
+    
+        <button type="button" class="btn btn-info" ng-click="tnf()">Thursday Games</button>
+        <button type="button" class="btn btn-info" ng-click="snf()">Sunday Games</button>
+        <button type="button" class="btn btn-info" ng-click="mnf()">Monday Games</button>
+    </div>
+
+    <div class="row" ng-repeat="team in matchupCtrl.teams" ng-style="myStyle" ng-hide="team.tnf || team.snf || team.mnf">
+        <div class="col-sm-5 well" ng-click="myStyle=(team.home.homeImage)">
+            <h3>Home</h3>
+            {{team.home.name}}
+        </div>
+        <div class="col-sm-5 well" ng-click="myStyle=(team.away.awayImage)">
+            <h3>Away</h3>
+            {{team.away.name}}
+        </div>
+        <div class="col-sm-2 well well-sm">
+            <p>{{team.time}} at {{team.location}} on {{team.date | date}}</p>
+            
+        </div>
+    </div>
+</div>
+</body>
+    
+</html>
